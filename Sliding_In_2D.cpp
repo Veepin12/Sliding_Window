@@ -8,7 +8,7 @@ int max_Sub_Matrix(vector<vector<int>> & nums,int k){
     int n=nums.size();
     int m=nums[0].size();
 
-    int maxsum=INT_MIN;
+    int maxsum=INT_MAX;
 
     for(int i=0;i<=n-k;i++){
         for(int j=0;j<=m-k;j++){
@@ -20,7 +20,7 @@ int max_Sub_Matrix(vector<vector<int>> & nums,int k){
 
                 }
             }
-           maxsum=max(maxsum,sum);
+           maxsum=min(maxsum,sum);
 
 
         }
@@ -32,11 +32,10 @@ int max_Sub_Matrix(vector<vector<int>> & nums,int k){
 
 int main(){
     vector<vector<int>> nums={
-        {1,2,3,4},
-        {5,6,7,8},
-        {9,10,11,12}
+        {1,-2},
+        {2,3}
     };
-    int k=3;
+    int k=2;
     cout<<max_Sub_Matrix(nums,k);
     return 0;
 }
